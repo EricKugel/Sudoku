@@ -83,7 +83,7 @@ public class Sudoku extends JFrame {
             writer.write(html);
             writer.close();
 
-            URI uri = new URI("file:///" + file.getAbsolutePath().replace("\\", "/"));
+            URI uri = new URI("file:///" + file.getAbsolutePath().replace("\\", "/").replace(" ", "%20"));
             Desktop desktop = Desktop.isDesktopSupported() ? Desktop.getDesktop() : null;
             if (desktop != null && desktop.isSupported(Desktop.Action.BROWSE)) {
                 desktop.browse(uri);
