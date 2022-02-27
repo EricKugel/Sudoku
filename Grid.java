@@ -158,4 +158,21 @@ public class Grid {
             }
         }
     }
+
+    public String generateHTML() {
+        String html = "<table>";
+        for (int row = 0; row < 9; row++) {
+            html += "<tr>";
+            for (int col = 0; col < 9; col++) {
+                html += "<td";
+                if (!grid[row][col].isGiven()) {
+                    html += " class=\"red\"";
+                }
+                html += ">" + grid[row][col].getText() + "</td>";
+            }
+            html += "</tr>";   
+        }
+        html += "</table>";
+        return html;
+    }
 }
