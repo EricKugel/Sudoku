@@ -9,11 +9,16 @@ public class Square extends JButton {
     private int value;
     private boolean given = false;
 
-    public Square(int value) {
+    public Square(int row, int col, int value) {
         setValue(value);
         setPreferredSize(new Dimension(SIZE, SIZE));
         setText("" + value);
         setBackground(new Color(240, 240, 240));
+        setFont(new Font(Font.SANS_SERIF, Font.BOLD, 24));
+
+        int bottom = (row - 2) % 3 == 0 ? 3 : 1;
+        int right = (col - 2) % 3 == 0 ? 3 : 1;
+        setBorder(BorderFactory.createMatteBorder(0, 0, bottom, right, Color.BLACK));
 
         addKeyListener(new KeyAdapter() {
             public void keyPressed(KeyEvent e) {
