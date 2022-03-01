@@ -71,6 +71,7 @@ public class Sudoku extends JFrame {
     public void openHTML() {
         String html = "<!DOCTYPE html><html><head><style>.red {color: red;}table, td {border: 1px solid black;}table {border-collapse: collapse;margin: auto;}td {width: 50px;height: 50px;text-align: center;font-size: 24px;line-height: 50px;}#author {position: absolute;bottom: 20px;left: 20px;}</style><body onload = \"print()\">";
         html += grid.generateHTML();
+        System.out.println(grid.generateHTML());
         html += "<div id = \"author\">Eric Kugel 2022</div></body></head></html>";
         try {
             File file = new File("C:/Users/" + System.getProperty("user.name") + "/Desktop/sudoku.html");

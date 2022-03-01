@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+        .red {
+            color: red;
+        }
+        table, td {
+        }
+        table {
+            margin: auto;
+        }
+        td {
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            font-size: 24px;
+            line-height: 50px;
+        }
+        #author {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+        }
+    </style>
+    <script>
+        function main() {
+            const table = document.getElementById("table");
+            for (var r = 0; r < table.children[0].length; r++) {
+                var row = table.children[0].get(r);
+                for (var c = 0; c < row.children.length; c++) {
+                    debugger;
+                    var cell = row.get(c);
+                    var size = 1;
+                    if ((r + 2) % 3 == 0) {
+                        size = 3;
+                    }
+                    cell.style.borderBottom = size + "px solid black";
+                    size = 1;
+                    if ((c + 2) % 3 == 0) {
+                        size = 3;
+                    }
+                    cell.style.borderRight = size + "px solid black";
+                }
+            }
+            print();
+        }
+    </script>
+    <body onload = "main()">
+        <table id = "table"><tr><td class="red">3</td><td class="red">4</td><td class="red">6</td><td class="red">1</td><td class="red">5</td><td>2</td><td>7</td><td class="red">8</td><td class="red">9</td></tr><tr><td class="red">2</td><td class="red">5</td><td class="red">8</td><td class="red">3</td><td>7</td><td>9</td><td class="red">1</td><td class="red">4</td><td class="red">6</td></tr><tr><td>1</td><td class="red">7</td><td>9</td><td>4</td><td>6</td><td>8</td><td class="red">2</td><td>3</td><td>5</td></tr><tr><td class="red">5</td><td class="red">3</td><td class="red">4</td><td class="red">6</td><td class="red">2</td><td>7</td><td class="red">9</td><td class="red">1</td><td>8</td></tr><tr><td class="red">8</td><td>9</td><td>2</td><td>5</td><td class="red">1</td><td>3</td><td>4</td><td>6</td><td class="red">7</td></tr><tr><td class="red">7</td><td class="red">6</td><td>1</td><td class="red">8</td><td class="red">9</td><td class="red">4</td><td>5</td><td class="red">2</td><td class="red">3</td></tr><tr><td class="red">6</td><td class="red">2</td><td class="red">5</td><td class="red">7</td><td class="red">3</td><td>1</td><td class="red">8</td><td class="red">9</td><td>4</td></tr><tr><td class="red">9</td><td>8</td><td class="red">7</td><td>2</td><td class="red">4</td><td>6</td><td class="red">3</td><td>5</td><td>1</td></tr><tr><td class="red">4</td><td>1</td><td>3</td><td class="red">9</td><td class="red">8</td><td class="red">5</td><td class="red">6</td><td>7</td><td>2</td></tr></table>
+        <div id = \"author\">Eric Kugel 2022</div>
+    </body>
+</html>
