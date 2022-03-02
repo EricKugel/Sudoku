@@ -2,7 +2,9 @@ import javax.swing.*;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.net.URI;
 
@@ -69,10 +71,22 @@ public class Sudoku extends JFrame {
     }
 
     public void openHTML() {
-        String html = "<!DOCTYPE html><html><head><style>.red {color: red;}table, td {border: 1px solid black;}table {border-collapse: collapse;margin: auto;}td {width: 50px;height: 50px;text-align: center;font-size: 24px;line-height: 50px;}#author {position: absolute;bottom: 20px;left: 20px;}</style><body onload = \"print()\">";
-        html += grid.generateHTML();
-        System.out.println(grid.generateHTML());
-        html += "<div id = \"author\">Eric Kugel 2022</div></body></head></html>";
+        // String html = "<!DOCTYPE html><html><head><style>.red {color: red;}table, td {border: 1px solid black;}table {border-collapse: collapse;margin: auto;}td {width: 50px;height: 50px;text-align: center;font-size: 24px;line-height: 50px;}#author {position: absolute;bottom: 20px;left: 20px;}</style><body onload = \"print()\">";
+        // html += grid.generateHTML();
+        // System.out.println(grid.generateHTML());
+        String html = "";
+        try {
+            BufferedReader in = new BufferedReader(new FileReader(new File("index.html")));
+            String line = in.readLine();
+            while(line != null) {
+                html += line + "\n";
+                line = in.readLine();
+            }
+            html = html.replace("<!--Insert table here-->", grid.generateHTML());
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        
         try {
             File file = new File("C:/Users/" + System.getProperty("user.name") + "/Desktop/sudoku.html");
             if (file.exists()) {

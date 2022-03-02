@@ -160,7 +160,7 @@ public class Grid {
     }
 
     public String generateHTML() {
-        String html = "<table>";
+        String html = "<table id = \"table\">";
         for (int row = 0; row < 9; row++) {
             html += "<tr>";
             for (int col = 0; col < 9; col++) {
