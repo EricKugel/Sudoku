@@ -16,9 +16,12 @@ public class Square extends JButton {
         setBackground(new Color(240, 240, 240));
         setFont(new Font(Font.SANS_SERIF, Font.BOLD, 24));
 
+        int top = row == 0 ? 3 : 0;
+        int left = col == 0 ? 3 : 0;
         int bottom = (row - 2) % 3 == 0 ? 3 : 1;
         int right = (col - 2) % 3 == 0 ? 3 : 1;
-        setBorder(BorderFactory.createMatteBorder(0, 0, bottom, right, Color.BLACK));
+
+        setBorder(BorderFactory.createMatteBorder(top, left, bottom, right, Color.BLACK));
 
         addKeyListener(new KeyAdapter() {
             public void keyPressed(KeyEvent e) {
